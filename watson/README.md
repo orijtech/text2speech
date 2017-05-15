@@ -1,10 +1,16 @@
-# text2speech
-Text to Speech packages
+# watson
 
-## Watson
-Uses IBM's Watson to transcribe text to speech allowing for output
-in different languages. See file [Watson README](./watson/README.md)
-or a snippet below
+Convert text to speech using IBM's Watson engine.
+
+## Requirements
+Create a project and get API credentials for IBM Watson at:
+https://www.ibm.com/watson/developercloud/
+
+Then ensure to set in your environment:
+* WATSON_TEXT_TO_SPEECH_USERNAME
+* WATSON_TEXT_TO_SPEECH_PASSWORD
+
+## Sample Usage
 ```go
 package main
 
@@ -35,7 +41,7 @@ func main() {
 	text := fmt.Sprintf("The time in 24hr clock is %v:%v:%v", hour, min, sec)
 	rc, err := client.SynthesizeAudio(&watson.Request{
 		Text:  text,
-		Voice: watson.VoiceAmericanAllisonFemale,
+		Voice: watson.VoiceAmericanLisaFemale,
 
 		OutputContentType: watson.WAV,
 	})
